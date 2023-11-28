@@ -17,12 +17,6 @@
 
 / {
     macros {
-        next_word: next_word {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LCTRL &kp RIGHT>;
-            label = "NEXT_WORD";
-        };
     };
 
     keymap {
@@ -42,7 +36,9 @@
                               &kp LGUI  &kp LCTRL  &kp RET  &kp SPACE  &kp ESC    &kp RET  &kp SPACE  &kp TAB  &mo 2  &kp RALT
             >;
 
-            sensor-bindings = <&inc_dec_kp K_NEXT K_PREV &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings =
+                <&inc_dec_kp LC(RIGHT_ARROW) LC(LEFT_ARROW)>,
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         function_layer {
