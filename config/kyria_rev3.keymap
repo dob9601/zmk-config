@@ -40,6 +40,8 @@
             sensor-bindings =
                 <&inc_dec_kp LC(RIGHT_ARROW) LC(LEFT_ARROW)>,
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+
+            label = "Default";
         };
 
         function_layer {
@@ -57,6 +59,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp K_NEXT K_PREV &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            label = "Functions";
         };
 
         symbol_layer {
@@ -66,6 +69,28 @@
 &trans  &kp EQUAL        &kp MINUS          &kp PLUS  &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SEMICOLON  &kp COLON             &kp BACKSLASH          &trans
                                             &trans    &trans          &trans           &trans  &trans  &trans  &trans  &trans            &trans             &trans
             >;
+
+            label = "Symbols";
+        };
+
+        media_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans      &trans            &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans      &trans            &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "Media Controls";
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        conditional_media {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
